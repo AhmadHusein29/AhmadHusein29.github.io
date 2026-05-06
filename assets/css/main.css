@@ -42,6 +42,7 @@
 .light-background {
   --background-color: #f5f6f8;
   --surface-color: #ffffff;
+
 }
 
 .dark-background {
@@ -889,11 +890,15 @@ section,
 }
 
 .hero .btn-watch-video {
-  font-size: 16px;
+  font-size: 18px;
   transition: 0.5s;
   margin-left: 25px;
-  color: var(--default-color);
+  color: rgb(137, 11, 153);
   font-weight: 600;
+  background: transparent;
+  width: 200px;
+  height: 50px;
+  
 }
 
 .hero .btn-watch-video i {
@@ -901,7 +906,7 @@ section,
   font-size: 32px;
   transition: 0.3s;
   line-height: 0;
-  margin-right: 8px;
+  margin-right: 10px;
 }
 
 .hero .btn-watch-video:hover {
@@ -1190,51 +1195,48 @@ section,
 }
 
 /*--------------------------------------------------------------
-# Services Section
+# Contact Section
 --------------------------------------------------------------*/
-.services .service-item {
+.contact .contact-item {
   background-color: var(--surface-color);
   box-shadow: 0px 5px 90px 0px rgba(0, 0, 0, 0.1);
   padding: 50px 30px;
   transition: all ease-in-out 0.4s;
   height: 100%;
+  text-align: center; /* Tambahan agar konten di tengah seperti kartu servis */
 }
 
-.services .service-item .icon {
-  margin-bottom: 10px;
+.contact .contact-item .icon {
+  margin-bottom: 15px;
 }
 
-.services .service-item .icon i {
+.contact .contact-item .icon i {
   color: var(--accent-color);
   font-size: 36px;
   transition: 0.3s;
 }
 
-.services .service-item h4 {
+.contact .contact-item h4 {
   font-weight: 700;
   margin-bottom: 15px;
   font-size: 20px;
-}
-
-.services .service-item h4 a {
   color: var(--heading-color);
-  transition: ease-in-out 0.3s;
 }
 
-.services .service-item p {
+.contact .contact-item p {
   line-height: 24px;
   font-size: 14px;
   margin-bottom: 0;
+  color: var(--default-color); /* Atau sesuaikan dengan variabel warna teksmu */
 }
 
-.services .service-item:hover {
+.contact .contact-item:hover {
   transform: translateY(-10px);
 }
 
-.services .service-item:hover h4 a {
+.contact .contact-item:hover h4 {
   color: var(--accent-color);
 }
-
 /*--------------------------------------------------------------
 # Work Process Section
 --------------------------------------------------------------*/
@@ -1545,244 +1547,60 @@ section,
 /*--------------------------------------------------------------
 # Team Section
 --------------------------------------------------------------*/
-.team .team-member {
-  background-color: var(--surface-color);
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
-  position: relative;
-  border-radius: 5px;
-  transition: 0.5s;
-  padding: 30px;
-  height: 100%;
+.catalogue-item {
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+  transition: 0.3s;
 }
 
-@media (max-width: 468px) {
-  .team .team-member {
-    flex-direction: column;
-    justify-content: center !important;
-    align-items: center !important;
-  }
+.catalogue-item:hover {
+  transform: translateY(-5px);
 }
 
-.team .team-member .pic {
-  overflow: hidden;
-  width: 150px;
-  border-radius: 50%;
-  flex-shrink: 0;
+.catalogue-img {
+  width: 100px;
+  margin-right: 20px;
 }
 
-.team .team-member .pic img {
-  transition: ease-in-out 0.3s;
+.catalogue-info h4 {
+  margin: 0;
+  font-size: 18px;
 }
 
-.team .team-member:hover {
-  transform: translateY(-10px);
-}
-
-.team .team-member .member-info {
-  padding-left: 30px;
-}
-
-@media (max-width: 468px) {
-  .team .team-member .member-info {
-    padding: 30px 0 0 0;
-    text-align: center;
-  }
-}
-
-.team .team-member h4 {
-  font-weight: 700;
-  margin-bottom: 5px;
-  font-size: 20px;
-}
-
-.team .team-member span {
+.catalogue-info span {
   display: block;
-  font-size: 15px;
-  padding-bottom: 10px;
-  position: relative;
-  font-weight: 500;
-}
-
-.team .team-member span::after {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 50px;
-  height: 1px;
-  background: color-mix(in srgb, var(--default-color), transparent 85%);
-  bottom: 0;
-  left: 0;
-}
-
-@media (max-width: 468px) {
-  .team .team-member span::after {
-    left: calc(50% - 25px);
-  }
-}
-
-.team .team-member p {
-  margin: 10px 0 0 0;
-  font-size: 14px;
-}
-
-.team .team-member .social {
-  margin-top: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: start;
-  width: 100%;
-}
-
-@media (max-width: 468px) {
-  .team .team-member .social {
-    justify-content: center;
-  }
-}
-
-.team .team-member .social a {
-  background: color-mix(in srgb, var(--default-color), transparent 94%);
-  transition: ease-in-out 0.3s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50px;
-  width: 36px;
-  height: 36px;
-}
-
-.team .team-member .social a i {
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-  font-size: 16px;
-  margin: 0 2px;
-}
-
-.team .team-member .social a:hover {
-  background: var(--accent-color);
-}
-
-.team .team-member .social a:hover i {
-  color: var(--contrast-color);
-}
-
-.team .team-member .social a+a {
-  margin-left: 8px;
+  font-weight: bold;
+  color: #c59d5f; /* gold vibes */
+  margin: 5px 0;
 }
 
 /*--------------------------------------------------------------
 # Pricing Section
 --------------------------------------------------------------*/
-.pricing .pricing-item {
-  background-color: var(--surface-color);
-  box-shadow: 0 3px 20px -2px rgba(0, 0, 0, 0.1);
-  border-top: 4px solid var(--background-color);
-  padding: 60px 40px;
-  height: 100%;
-  border-radius: 5px;
+.sale-item {
+  position: relative;
+  overflow: hidden;
 }
 
-.pricing h3 {
-  font-weight: 600;
-  margin-bottom: 15px;
-  font-size: 20px;
+.sale-badge {
+  position: absolute;
+  top: 15px;
+  right: -40px;
+  background: red;
+  color: #fff;
+  padding: 5px 40px;
+  transform: rotate(45deg);
+  font-size: 12px;
+  font-weight: bold;
 }
 
-.pricing h4 {
-  color: var(--accent-color);
-  font-size: 48px;
-  font-weight: 400;
-  font-family: var(--heading-font);
-  margin-bottom: 0;
-}
-
-.pricing h4 sup {
-  font-size: 28px;
-}
-
-.pricing h4 span {
-  color: color-mix(in srgb, var(--default-color), transparent 50%);
-  font-size: 18px;
-}
-
-.pricing ul {
-  padding: 20px 0;
-  list-style: none;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
-  text-align: left;
-  line-height: 20px;
-}
-
-.pricing ul li {
-  padding: 10px 0;
-  display: flex;
-  align-items: center;
-}
-
-.pricing ul i {
-  color: #059652;
-  font-size: 24px;
-  padding-right: 3px;
-}
-
-.pricing ul .na {
-  color: color-mix(in srgb, var(--default-color), transparent 60%);
-}
-
-.pricing ul .na i {
-  color: color-mix(in srgb, var(--default-color), transparent 60%);
-}
-
-.pricing ul .na span {
+.old-price {
   text-decoration: line-through;
-}
-
-.pricing .buy-btn {
-  color: var(--accent-color);
-  display: inline-block;
-  padding: 8px 35px 10px 35px;
-  border-radius: 50px;
-  transition: none;
+  color: #999;
   font-size: 16px;
-  font-weight: 500;
-  font-family: var(--heading-font);
-  transition: 0.3s;
-  border: 1px solid var(--accent-color);
 }
-
-.pricing .buy-btn:hover {
-  background: var(--accent-color);
-  color: var(--contrast-color);
-}
-
-.pricing .featured {
-  border-top-color: var(--accent-color);
-}
-
-.pricing .featured .buy-btn {
-  background: var(--accent-color);
-  color: var(--contrast-color);
-}
-
-@media (max-width: 992px) {
-  .pricing .box {
-    max-width: 60%;
-    margin: 0 auto 30px auto;
-  }
-}
-
-@media (max-width: 767px) {
-  .pricing .box {
-    max-width: 80%;
-    margin: 0 auto 30px auto;
-  }
-}
-
-@media (max-width: 420px) {
-  .pricing .box {
-    max-width: 100%;
-    margin: 0 auto 30px auto;
-  }
-}
-
 /*--------------------------------------------------------------
 # Testimonials Section
 --------------------------------------------------------------*/
@@ -3574,4 +3392,22 @@ section,
   padding-left: 5px;
   color: color-mix(in srgb, var(--default-color), transparent 60%);
   font-size: 14px;
+}
+
+.footer {
+  background: #1f022b;
+  color: #fff;
+}
+
+.footer a {
+  color: #ccc;
+}
+
+.footer a:hover {
+  color: #c59d5f; /* gold */
+}
+
+.footer .sitename {
+  font-weight: bold;
+  font-size: 22px;
 }
