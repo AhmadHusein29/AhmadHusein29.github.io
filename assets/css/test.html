@@ -1,0 +1,405 @@
+1. Bagian <head>
+<!DOCTYPE html> → memberitahu browser bahwa ini adalah file HTML5
+<html lang="en"> → tag pembuka seluruh halaman, lang="en" artinya bahasa Inggris
+<meta charset="utf-8"> → mengatur karakter yang digunakan agar huruf tidak rusak/aneh
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> → membuat web responsive di HP, ukuran menyesuaikan layar
+<title>BMW Site</title> → judul yang muncul di tab browser
+<link href="..." rel="stylesheet"> → menghubungkan file CSS eksternal ke HTML
+
+2. Bagian Library/Vendor
+bootstrap.min.css → library CSS untuk layout grid dan komponen siap pakai
+bootstrap-icons.css → library ikon seperti bi bi-check2-circle, bi bi-telephone dll
+aos.css → library animasi saat scroll (Animate On Scroll)
+glightbox.min.css → library popup foto/video saat diklik
+swiper-bundle.min.css → library slider/carousel otomatis
+
+3. Bagian <header> — Navbar
+<header id="header" class="header d-flex align-items-center fixed-top"> → navbar yang selalu menempel di atas saat di-scroll. fixed-top dari Bootstrap
+<a href="index.html" class="logo"> → logo yang bisa diklik untuk kembali ke halaman utama
+<nav id="navmenu"> → tag navigasi/menu
+<ul> dan <li> → list menu navigasi
+<a href="#hero"> → link ke section dengan id hero di halaman yang sama (anchor link)
+class="active" → menandai menu yang sedang aktif/dipilih
+<i class="mobile-nav-toggle bi bi-list"> → ikon hamburger (≡) yang muncul di HP untuk membuka menu
+<a class="btn-getstarted"> → tombol "Get To See" di pojok kanan navbar
+
+4. Section Hero
+html<section id="hero" class="hero section dark-background" style="background-image: ...">
+id="hero" → penanda section agar bisa dihubungkan dari menu navbar
+class="dark-background" → mengaktifkan preset warna gelap dari CSS
+style="background-image: linear-gradient(...), url('...')" → background foto dengan overlay gradient gelap di kiri
+data-aos="zoom-out" → animasi zoom keluar saat halaman pertama dibuka
+<h1> → judul utama terbesar di halaman
+<p> → paragraf/teks deskripsi
+class="btn-get-started" → styling tombol utama biru
+class="glightbox btn-watch-video" → tombol play video yang membuka popup video YouTube
+
+5. Section Clients (Slider Logo)
+<div class="swiper init-swiper"> → membuat slider menggunakan library Swiper
+<script type="application/json" class="swiper-config"> → pengaturan slider dalam format JSON:
+
+"loop": true → slider berputar terus
+"autoplay": {"delay": 5000} → otomatis geser tiap 5 detik
+"breakpoints" → jumlah slide yang tampil berbeda di tiap ukuran layar
+
+<div class="swiper-slide"> → setiap item/logo di dalam slider
+
+6. Section About (Who We Are)
+style="background-image: linear-gradient(...), url('...')" → foto BMW sebagai background dengan overlay gelap kiri
+data-aos="fade-up" → animasi muncul dari bawah ke atas saat di-scroll
+data-aos-delay="100" → jeda animasi 100 milidetik
+<ul> dan <li> → daftar poin checklist
+<i class="bi bi-check2-circle"> → ikon centang dari Bootstrap Icons
+
+7. Section Why Us
+class="faq-item faq-active" → accordion yang terbuka secara default
+<span>01</span> → nomor urut accordion
+<div class="faq-content"> → isi jawaban yang tersembunyi/muncul saat diklik
+<i class="faq-toggle bi bi-chevron-right"> → ikon panah yang berputar saat accordion dibuka
+class="col-lg-7" dan class="col-lg-5" → pembagian kolom Bootstrap, total 12. Kiri 7 kolom, kanan 5 kolom
+
+8. Section Services
+class="col-xl-3 col-lg-4 col-md-6 col-12" → responsive grid:
+
+Layar XL → 4 card sejajar (3 dari 12)
+Layar LG → 3 card sejajar (4 dari 12)
+Layar MD → 2 card sejajar (6 dari 12)
+HP → 1 card penuh (12 dari 12)
+
+class="img-fluid" → gambar otomatis menyesuaikan lebar kolom
+class="stretched-link" → membuat seluruh area card bisa diklik sebagai link
+
+9. Section Call To Action
+<img src="assets/img/bg/BgBMW.png"> → foto background section
+data-aos="zoom-in" → animasi zoom masuk saat di-scroll
+class="col-xl-9" dan class="col-xl-3" → teks di kiri (9 kolom), tombol di kanan (3 kolom)
+
+10. Section Portfolio/Products
+class="isotope-layout" → menggunakan library Isotope untuk filter dan animasi
+data-filter="*" → tombol filter "All" untuk tampilkan semua item
+data-filter=".filter-app" → filter hanya tampilkan item dengan class filter-app (Petrol)
+class="glightbox preview-link" → link preview foto yang membuka popup
+class="details-link" → link menuju halaman detail eksternal (website BMW resmi)
+
+11. Section Contact
+<iframe src="https://www.google.com/maps/embed?..."> → embed Google Maps langsung di halaman
+<form action="forms/contact.php" method="post"> → form yang mengirim data ke file PHP
+class="php-email-form" → class khusus untuk validasi form menggunakan library validate.js
+type="text", type="email" → jenis input, browser otomatis validasi format email
+required="" → field wajib diisi, tidak bisa submit jika kosong
+<textarea rows="10"> → kotak teks besar untuk pesan, tinggi 10 baris
+
+12. Footer
+class="footer-newsletter" → bagian newsletter subscribe di atas footer
+class="footer-top" → bagian utama footer dengan kolom info, links, services, social
+class="social-links" → ikon sosial media yang bisa diklik
+<a href="https://x.com/BMW"> → link ke Twitter/X BMW
+
+13. Bagian Bawah — Script JS
+bootstrap.bundle.min.js → JavaScript Bootstrap untuk komponen interaktif
+aos.js → mengaktifkan animasi scroll AOS
+glightbox.min.js → mengaktifkan popup foto/video
+swiper-bundle.min.js → mengaktifkan slider logo
+isotope.pkgd.min.js → mengaktifkan filter portfolio
+main.js → file JavaScript utama milik template Arsha
+
+14.Ngatur Background di belakang
+style="background-image: linear-gradient(to right,rgba(5, 10, 28, 0.8), rgba(0, 0, 0, 0.1)), url('assets/img/The\ Gateway.jpg'); background-size: cover; background-position: center;">
+
+CSS
+1. Variabel Global (:root)
+css:root {
+  --default-font: "Barlow";
+  --heading-font: "Rajdhani";
+  --nav-font: "Barlow";
+}
+:root → variabel yang berlaku untuk seluruh halaman. Dengan variabel, cukup ubah di satu tempat maka berubah di mana-mana
+--default-font → font untuk teks biasa/paragraf
+--heading-font → font untuk semua judul (h1-h6)
+--nav-font → font khusus menu navigasi
+
+2. Variabel Warna
+--background-color: #ffffff → warna latar belakang seluruh halaman (putih)
+--default-color: #444444 → warna teks biasa (abu gelap)
+--heading-color: #37517e → warna judul (biru navy)
+--accent-color: #47b2e4 → warna aksen/brand (biru muda BMW), dipakai di tombol dan link
+--surface-color: #ffffff → warna background card/kotak
+--contrast-color: #ffffff → warna teks di atas background gelap (putih)
+
+3. Preset Warna Section
+css.light-background {
+  --background-color: #f6f8f4;
+}
+→ Section dengan class light-background pakai background abu muda (dipakai di section Services, Why Us)
+css.dark-background {
+  --background-color: #37517e;
+  --default-color: #ffffff;
+}
+→ Section dengan class dark-background pakai background biru gelap dan teks putih (dipakai di Hero, Call To Action)
+
+4. Styling Dasar
+cssbody { font-family: var(--default-font); }
+→ Seluruh teks di body pakai font Barlow
+cssa { color: var(--accent-color); transition: 0.3s; }
+→ Semua link berwarna biru aksen, dengan transisi 0.3 detik saat hover
+cssh1, h2, h3, h4, h5, h6 { font-family: var(--heading-font); }
+→ Semua judul pakai font Rajdhani
+
+5. CSS Services Card (yang kamu edit)
+css.services .service-item {
+  padding: 0;
+  overflow: hidden;
+  border-radius: 10px;
+}
+padding: 0 → tidak ada jarak dalam card agar gambar menempel ke tepi
+overflow: hidden → memotong bagian gambar yang keluar dari card
+border-radius: 10px → sudut card melengkung 10px
+css.services .service-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 16px;
+  margin: 20px auto;
+}
+object-fit: contain → gambar tampil utuh tanpa terpotong
+border-radius: 16px → sudut gambar melengkung
+margin: 20px auto → jarak atas-bawah 20px, kiri-kanan otomatis tengah
+
+
+HOVER EFFECT
+Hover adalah efek yang terjadi saat mouse diarahkan ke suatu elemen.
+Cara Penulisan di CSS
+css
+/* Elemen normal */
+.service-item {
+  background-color: white;
+  transition: 0.3s;
+}
+
+/* Efek saat di-hover */
+.service-item:hover {
+  background-color: #47b2e4;
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 30px rgba(0,0,0,0.2);
+}
+selector:hover → titik dua disebut pseudo-class, artinya kondisi khusus saat mouse di atas elemen
+transition: 0.3s → WAJIB ditulis di elemen normal (bukan di hover), fungsinya membuat perubahan terjadi secara halus/smooth selama 0.3 detik. Tanpa ini perubahan akan langsung terjadi tanpa animasi
+transform: translateY(-5px) → menggeser elemen ke atas 5px saat di-hover, efek "terangkat"
+box-shadow → menambah bayangan di bawah elemen
+
+Contoh Hover yang Ada di Template Kamu
+Hover pada link navbar:
+css
+/* Di main.css kamu */
+.navmenu a:hover {
+  color: var(--nav-hover-color); /* berubah jadi biru muda */
+}
+Hover pada tombol:
+css
+.btn-get-started:hover {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 15%);
+}
+color-mix() → fungsi CSS modern untuk mencampur warna. Di sini warna aksen dicampur dengan transparent 15% sehingga sedikit lebih pudar saat hover
+ BOX MODEL
+Setiap elemen HTML adalah sebuah "kotak" yang terdiri dari 4 lapisan dari dalam ke luar:
+
+margin → jarak luar elemen dengan elemen lain. Contoh di CSS kamu: margin: 20px auto (atas-bawah 20px, kiri-kanan otomatis tengah)
+padding → jarak dalam elemen antara tepi dan konten. Contoh: padding: 50px 30px (atas-bawah 50px, kiri-kanan 30px)
+border → garis tepi elemen. Contoh: border: 1px solid #ccc
+content → area isi konten seperti teks atau gambar
+–
+
+PSEUDO-CLASS & PSEUDO-ELEMENT
+Pseudo-Class (kondisi elemen)
+Ditulis dengan : (satu titik dua)
+Pseudo-Class
+Artinya
+:hover
+Saat mouse di atas elemen
+:active
+Saat elemen sedang diklik
+:focus
+Saat elemen sedang difokus (input form)
+:first-child
+Elemen pertama dari parent-nya
+:last-child
+Elemen terakhir dari parent-nya
+:nth-child(2)
+Elemen ke-2 dari parent-nya
+
+Contoh yang ada di template kamu:
+css
+.navmenu a.active {
+  color: var(--nav-hover-color);
+}
+/* .active = menu yang sedang aktif/dipilih */
+Pseudo-Element (bagian elemen)
+Ditulis dengan :: (dua titik dua)
+Pseudo-Element
+Artinya
+::before
+Menambah konten sebelum elemen
+::after
+Menambah konten setelah elemen
+::placeholder
+Styling teks placeholder di input
+
+Contoh penggunaan ::before dan ::after di template kamu:
+css
+/* Garis bawah judul section "WHO WE ARE" */
+.section-title h2::after {
+  content: '';           /* wajib ada meski kosong */
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: var(--accent-color);
+  margin: 10px auto 0;
+}
+content: '' → wajib ditulis meski kosong, ini yang "menciptakan" elemen baru
+ RESPONSIVE DESIGN & MEDIA QUERY
+Media Query
+Digunakan untuk mengatur tampilan berbeda di ukuran layar yang berbeda.
+css
+/* Berlaku untuk semua ukuran (default) */
+.service-item {
+  font-size: 16px;
+}
+
+/* Berlaku hanya saat layar lebih kecil dari 768px (HP) */
+@media (max-width: 768px) {
+  .service-item {
+    font-size: 14px;
+  }
+}
+
+/* Berlaku hanya saat layar lebih besar dari 1200px (PC besar) */
+@media (min-width: 1200px) {
+  .service-item {
+    font-size: 18px;
+  }
+}
+Breakpoint Bootstrap yang Dipakai di Template Kamu
+Class
+Ukuran Layar
+Perangkat
+col-12
+< 576px
+HP kecil
+col-sm-
+≥ 576px
+HP besar
+col-md-
+≥ 768px
+Tablet
+col-lg-
+≥ 992px
+Laptop
+col-xl-
+≥ 1200px
+PC/Desktop
+
+Contoh di section Services kamu:
+html
+<div class="col-xl-3 col-lg-4 col-md-6 col-12">
+→ PC: 4 card sejajar → Laptop: 3 card → Tablet: 2 card → HP: 1 card penuh
+ ANIMASI CSS
+Transition
+Digunakan untuk efek perubahan yang halus (biasanya dikombinasi dengan hover):
+css
+.service-item {
+  transition: all 0.3s ease-in-out;
+}
+/* all = semua properti yang berubah akan smooth */
+/* 0.3s = durasi 0.3 detik */
+/* ease-in-out = mulai lambat, cepat di tengah, lambat di akhir */
+Transform
+Mengubah bentuk/posisi elemen tanpa menggeser elemen lain:
+Property
+Fungsi
+translateX(10px)
+Geser ke kanan 10px
+translateY(-5px)
+Geser ke atas 5px
+scale(1.1)
+Perbesar 110%
+rotate(45deg)
+Putar 45 derajat
+
+Contoh:
+css
+.service-item:hover {
+  transform: translateY(-5px) scale(1.02);
+  /* naik 5px + sedikit membesar saat hover */
+}
+AOS (Animate On Scroll)
+Library animasi yang dipakai di template kamu. Ditulis di HTML sebagai atribut:
+Atribut
+Fungsi
+data-aos="fade-up"
+Muncul dari bawah ke atas
+data-aos="fade-down"
+Muncul dari atas ke bawah
+data-aos="zoom-in"
+Muncul dengan zoom masuk
+data-aos="zoom-out"
+Muncul dengan zoom keluar
+data-aos-delay="100"
+Jeda sebelum animasi mulai (ms)
+data-aos-duration="500"
+Durasi animasi (ms)
+
+
+DISPLAY & FLEXBOX
+Display
+Mengatur bagaimana elemen ditampilkan:
+Nilai
+Artinya
+display: block
+Elemen memenuhi satu baris penuh
+display: inline
+Elemen mengikuti alur teks
+display: flex
+Mengaktifkan Flexbox
+display: none
+Elemen disembunyikan
+
+Flexbox
+Digunakan untuk mengatur posisi elemen di dalam container. Di template kamu banyak pakai class Bootstrap yang sebenarnya menggunakan flex:
+d-flex → display: flex (Bootstrap)
+align-items-center → elemen di dalam sejajar vertikal ke tengah
+justify-content-center → elemen di dalam sejajar horizontal ke tengah
+flex-column → elemen di dalam disusun vertikal (atas ke bawah)
+Contoh di navbar kamu:
+html
+<header class="d-flex align-items-center">
+→ Logo dan menu navbar sejajar secara vertikal di tengah
+
+SELECTOR CSS
+Selector adalah cara memilih elemen mana yang akan diberi style:
+Selector
+Contoh
+Artinya
+Tag
+h1 { }
+Semua elemen h1
+Class
+.service-item { }
+Elemen dengan class service-item
+ID
+#hero { }
+Elemen dengan id hero
+Descendant
+.services img { }
+img yang ada di dalam .services
+Child
+.row > .col { }
+.col yang langsung anak dari .row
+Multiple
+h1, h2, h3 { }
+h1 DAN h2 DAN h3 sekaligus
+
+Contoh di CSS kamu:
+css
+.services .service-item img { }
+/* artinya: img yang ada di dalam .service-item yang ada di dalam .services */
+
